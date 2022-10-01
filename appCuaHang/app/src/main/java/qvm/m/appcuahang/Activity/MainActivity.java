@@ -1,5 +1,6 @@
 package qvm.m.appcuahang.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -9,6 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -34,6 +38,7 @@ import java.util.ArrayList;
 
 import qvm.m.appcuahang.Adapter.SanPhamAdapter;
 import qvm.m.appcuahang.Adapter.loaiSpAdapter;
+import qvm.m.appcuahang.Model.GioHang;
 import qvm.m.appcuahang.Model.LoaiSp;
 import qvm.m.appcuahang.Model.SanPham;
 import qvm.m.appcuahang.R;
@@ -59,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<SanPham> mangSanPham;
     SanPhamAdapter sanPhamAdapter;
 
+    public static ArrayList<GioHang> gioHangArray;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +84,28 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_giohang,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuGioHang:
+                Intent intent = new Intent(getApplicationContext(),GioHangActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.menuUser:
+                Intent intent1 = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent1);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
     private void CatchOnItemListView() {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -94,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         if(CheckConnect.haveNetworkConnection(getApplicationContext())){
                             Intent intent = new Intent(MainActivity.this,SieuXeActivity.class);
-                            intent.putExtra("idLoaiSp",mangloaisp.get(i).getId());
+                            intent.putExtra("loai",1);
                             startActivity(intent);
                         }else{
                             CheckConnect.ShowToast_Short(getApplicationContext(),"Kiểm tra lại kết nối !");
@@ -104,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                     case 2:
                         if(CheckConnect.haveNetworkConnection(getApplicationContext())){
                             Intent intent = new Intent(MainActivity.this,XeLeoNuiActivity.class);
-                            intent.putExtra("idLoaiSp",mangloaisp.get(i).getId());
+                            //intent.putExtra("idLoaiSp",mangloaisp.get(i).getId());
                             startActivity(intent);
                         }else{
                             CheckConnect.ShowToast_Short(getApplicationContext(),"Kiểm tra lại kết nối !");
@@ -142,15 +171,16 @@ public class MainActivity extends AppCompatActivity {
                 if(response != null){
                     int id = 0;
                     String tenSanPham = "";
-                    Integer giaSanPham = 0;
+                    int giaSanPham = 0;
                     String hinhAnhSp = "";
                     String moTaSanPham = "";
-                    Integer idSanPham = 0;
+                    int idSanPham = 0;
                     for (int i = 0; i < response.length();i++){
                         try {
                             JSONObject jsonObject = response.getJSONObject(i);
                             id = jsonObject.getInt("id");
                             tenSanPham = jsonObject.getString("tensp");
+                            Log.d("mannn",tenSanPham);
                             giaSanPham = jsonObject.getInt("giasp");
                             hinhAnhSp = jsonObject.getString("hinhanhsp");
                             moTaSanPham = jsonObject.getString("motasp");
@@ -255,6 +285,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
         recyclerView.setAdapter(sanPhamAdapter);
+
+        if(gioHangArray != null){
+
+        }else{
+            gioHangArray = new ArrayList<>();
+        }
 
     }
 }

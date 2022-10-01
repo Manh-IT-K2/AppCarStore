@@ -19,7 +19,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolBarMain"
                 app:title="Trang Chính"
-                android:background="#2196F3"
+                android:background="#B6B9BC"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"></androidx.appcompat.widget.Toolbar>
 

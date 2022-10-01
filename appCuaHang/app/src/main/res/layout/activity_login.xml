@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.LoginActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="@drawable/background_login">
+           <ImageButton
+               android:id="@+id/imageButtonHome"
+               android:layout_margin="10dp"
+               android:layout_marginRight="80dp"
+               android:src="@drawable/icon_home"
+               android:scaleType="centerInside"
+
+               android:background="@drawable/custom_home"
+               android:layout_width="50dp"
+               android:layout_height="50dp"></ImageButton>
+            <TextView
+                android:layout_gravity="center"
+                android:text="Sign In"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+
+        <EditText
+            android:id="@+id/editTextUserName"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/custom_edittext"
+            android:drawableLeft="@drawable/icon_user"
+            android:layout_width="match_parent"
+            android:paddingLeft="30dp"
+            android:layout_height="50dp"></EditText>
+        <EditText
+            android:id="@+id/editTextPassWord"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/custom_edittext"
+            android:drawableLeft="@drawable/icon_pass"
+            android:layout_width="match_parent"
+            android:paddingLeft="30dp"
+            android:layout_height="50dp"></EditText>
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Login"
+            android:textSize="20sp"
+            android:background="@drawable/custom_button"
+            android:layout_width="200dp"
+            android:layout_height="50dp"></Button>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/textViewRegister"
+                android:textColor="@color/white"
+                android:layout_marginRight="20dp"
+                android:textSize="16sp"
+                android:text="Register ?"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+            <TextView
+                android:id="@+id/textViewForgot"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:textSize="16sp"
+                android:text="Forgot password ?"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+    <TextView
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:text="or singin with"
+        android:textStyle="bold|italic"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <ImageButton
+            android:id="@+id/imageButtonFB"
+            android:src="@drawable/icon_facebook"
+            android:background="@null"
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></ImageButton>
+        <ImageButton
+            android:id="@+id/imageButtonGG"
+            android:src="@drawable/icon_google"
+            android:background="@null"
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></ImageButton>
+        <ImageButton
+            android:id="@+id/imageButtonIns"
+            android:src="@drawable/icon_instagram"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></ImageButton>
+    </LinearLayout>
+
+
+</LinearLayout>

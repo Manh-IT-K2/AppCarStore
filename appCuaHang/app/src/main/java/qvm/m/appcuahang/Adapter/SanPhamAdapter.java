@@ -1,6 +1,7 @@
 package qvm.m.appcuahang.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,10 @@ import com.bumptech.glide.Glide;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import qvm.m.appcuahang.Activity.ChiTietSanPhamActivity;
 import qvm.m.appcuahang.Model.SanPham;
 import qvm.m.appcuahang.R;
+import qvm.m.appcuahang.ultil.CheckConnect;
 
 public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ItemHolder> {
     Context context;
@@ -63,6 +66,17 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ItemHold
             imgHinhSp = (ImageView) itemView.findViewById(R.id.imageViewSanPham);
             txtTenSp = (TextView) itemView.findViewById(R.id.txt_tenSp);
             txtGiaSp = (TextView) itemView.findViewById(R.id.txt_giaSp);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, ChiTietSanPhamActivity.class);
+                    intent.putExtra("thongtinsanpham",arraySanPham.get(getPosition()));
+                    intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+                    CheckConnect.ShowToast_Short(context,arraySanPham.get(getPosition()).getTenSp());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }
