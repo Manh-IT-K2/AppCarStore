@@ -1,12 +1,13 @@
 package qvm.m.appcuahang.Model;
+
 import java.util.List;
 
-public class LoaiSpModel {
+public class UserModel {
     boolean success;
     String message;
-    List<SanPham> result;
+    List<User> result;
 
-    public LoaiSpModel(boolean success, String message, List<SanPham> result) {
+    public UserModel(boolean success, String message, List<User> result) {
         this.success = success;
         this.message = message;
         this.result = result;
@@ -28,11 +29,11 @@ public class LoaiSpModel {
         this.message = message;
     }
 
-    public List<SanPham> getResult() {
+    public List<User> getResult() {
         return result;
     }
 
-    public void setResult(List<SanPham> result) {
+    public void setResult(List<User> result) {
         this.result = result;
     }
 }

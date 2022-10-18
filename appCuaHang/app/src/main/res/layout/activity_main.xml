@@ -46,7 +46,11 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+                    android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+                <com.google.android.material.bottomappbar.BottomAppBar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="BottomAppBar"></com.google.android.material.bottomappbar.BottomAppBar>
 
             </LinearLayout>
 
@@ -63,6 +67,7 @@
                 android:layout_height="wrap_content"></ListView>
 
         </com.google.android.material.navigation.NavigationView>
+
     </androidx.drawerlayout.widget.DrawerLayout>
 
 </LinearLayout>

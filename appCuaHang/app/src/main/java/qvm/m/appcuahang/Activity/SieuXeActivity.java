@@ -104,7 +104,7 @@ public class SieuXeActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         loaiSpModel -> {
-                            if(loaiSpModel.isSuccsess()){
+                            if(loaiSpModel.isSuccess()){
                                 sanPhamList = loaiSpModel.getResult();
                                 sieuXeAdapter = new SieuXeAdapter(getApplicationContext(),sanPhamList);
                                 Log.d("list",sanPhamList.get(1).getTenSp() + "");
